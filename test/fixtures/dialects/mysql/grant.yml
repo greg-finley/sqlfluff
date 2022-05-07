@@ -3,12 +3,24 @@
 # computed by SQLFluff when running the tests. Please run
 # `python test/generate_parse_fixture_yml.py`  to generate them after adding or
 # altering SQL files.
-_hash: ef2fe49ff436f9fd146dc4e6c22215bdbedd8edeea91dc43e13f72794d36533d
+_hash: a13dfac8c0b6412474c21d428de1ef6f2224f0566363df9e1cf91676c3aa61bb
 file:
   statement:
-    create_user_statement:
-    - keyword: CREATE
-    - keyword: USER
+    access_statement:
+    - keyword: GRANT
+    - keyword: INSERT
+    - comma: ','
+    - keyword: UPDATE
+    - comma: ','
+    - keyword: DELETE
+    - comma: ','
+    - keyword: SELECT
+    - comma: ','
+    - keyword: REFERENCES
+    - keyword: 'ON'
+    - object_reference:
+        identifier: prj_table
+    - keyword: TO
     - object_reference:
         identifier: prj_svc
   statement_terminator: ;

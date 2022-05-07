@@ -658,14 +658,26 @@ class DeclareStatement(BaseSegment):
     )
 
 
-class UserOrRoleSegment(BaseSegment):
-    """Format for user and role names.
+class UserReferenceSegment(BaseSegment):
+    """Format for user and role names."""
+
+    type = "user_reference_segment"
+
+    match_grammar = OneOf(
+        Ref("ObjectReferenceSegment"),
+        Ref("QualifiedUserReferenceSegment"),
+        Ref("SingleIdentifierGrammar"),
+    )
+
+
+class QualifiedUserReferenceSegment(BaseSegment):
+    """Format for qualified user and role names.
 
     https://dev.mysql.com/doc/refman/8.0/en/account-names.html
     https://dev.mysql.com/doc/refman/8.0/en/role-names.html
     """
 
-    type = "account_segment"
+    type = "qualified_user_reference_segment"
 
     match_grammar = Sequence(
         Ref("SingleIdentifierGrammar"),
@@ -711,7 +723,8 @@ class StatementSegment(ansi.StatementSegment):
             Ref("UpsertClauseListSegment"),
             Ref("InsertRowAliasSegment"),
             Ref("FlushStatementSegment"),
-            Ref("UserOrRoleSegment"),
+            Ref("UserReferenceSegment"),
+            Ref("QualifiedUserReferenceSegment"),
         ],
     )
 
@@ -1013,7 +1026,9 @@ class DefinerSegment(BaseSegment):
 
     type = "definer_segment"
 
-    match_grammar = Sequence("DEFINER", Ref("EqualsSegment"), Ref("UserOrRoleSegment"))
+    match_grammar = Sequence(
+        "DEFINER", Ref("EqualsSegment"), Ref("QualifiedUserReferenceSegment")
+    )
 
 
 class SelectClauseModifierSegment(BaseSegment):
