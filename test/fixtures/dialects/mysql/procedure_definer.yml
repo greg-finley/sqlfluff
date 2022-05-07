@@ -3,18 +3,19 @@
 # computed by SQLFluff when running the tests. Please run
 # `python test/generate_parse_fixture_yml.py`  to generate them after adding or
 # altering SQL files.
-_hash: a84f68a7a15546561ae5ac2563ab59c0ba1e272b2ed819972e2422d84909ebd7
+_hash: fad3349e5ae50077b4a44c3240ca92b1fa09111742e9577be1fa3ca6f202bc40
 file:
   statement:
     create_procedure_statement:
     - keyword: CREATE
     - definer_segment:
-      - keyword: DEFINER
-      - comparison_operator:
+        keyword: DEFINER
+        comparison_operator:
           raw_comparison_operator: '='
-      - identifier: '`test`'
-      - literal: '@'
-      - identifier: '`%`'
+        account_segment:
+        - identifier: '`test`'
+        - literal: '@'
+        - identifier: '`%`'
     - keyword: PROCEDURE
     - function_name:
         identifier: '`testprocedure`'
