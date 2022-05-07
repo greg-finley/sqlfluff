@@ -3,7 +3,7 @@
 # computed by SQLFluff when running the tests. Please run
 # `python test/generate_parse_fixture_yml.py`  to generate them after adding or
 # altering SQL files.
-_hash: e53719c9a38eb0112c74b63b68a96a9464329a57c4136e8a85c19fbbc443abdb
+_hash: a7ff3ca29c5948326377cf0e77d2700fee612909d4fe3eb820751b6f2f768e71
 file:
 - statement:
     access_statement:
@@ -14,8 +14,9 @@ file:
     - object_reference:
         identifier: api
     - keyword: TO
-    - object_reference:
-        identifier: web_anon
+    - grantee_statement:
+        object_reference:
+          identifier: web_anon
 - statement_terminator: ;
 - statement:
     access_statement:
@@ -28,8 +29,9 @@ file:
       - dot: .
       - identifier: test
     - keyword: TO
-    - object_reference:
-        identifier: web_anon
+    - grantee_statement:
+        object_reference:
+          identifier: web_anon
 - statement_terminator: ;
 - statement:
     access_statement:
@@ -37,8 +39,9 @@ file:
     - object_reference:
         identifier: web_anon
     - keyword: TO
-    - object_reference:
-        identifier: my_user
+    - grantee_statement:
+        object_reference:
+          identifier: my_user
 - statement_terminator: ;
 - statement:
     access_statement:
@@ -55,8 +58,9 @@ file:
     - object_reference:
         identifier: my_db
     - keyword: TO
-    - object_reference:
-        identifier: app
+    - grantee_statement:
+        object_reference:
+          identifier: app
 - statement_terminator: ;
 - statement:
     access_statement:
@@ -70,8 +74,9 @@ file:
     - object_reference:
         identifier: my_schema
     - keyword: TO
-    - object_reference:
-        identifier: app
+    - grantee_statement:
+        object_reference:
+          identifier: app
 - statement_terminator: ;
 - statement:
     access_statement:
@@ -82,8 +87,9 @@ file:
     - object_reference:
         identifier: my_domain
     - keyword: TO
-    - object_reference:
-        identifier: my_user
+    - grantee_statement:
+        object_reference:
+          identifier: my_user
 - statement_terminator: ;
 - statement:
     access_statement:
@@ -96,8 +102,9 @@ file:
     - object_reference:
         identifier: my_fdw
     - keyword: TO
-    - object_reference:
-        identifier: my_user
+    - grantee_statement:
+        object_reference:
+          identifier: my_user
 - statement_terminator: ;
 - statement:
     access_statement:
@@ -109,8 +116,9 @@ file:
     - object_reference:
         identifier: fs
     - keyword: TO
-    - object_reference:
-        identifier: my_user
+    - grantee_statement:
+        object_reference:
+          identifier: my_user
 - statement_terminator: ;
 - statement:
     access_statement:
@@ -121,8 +129,9 @@ file:
     - object_reference:
         identifier: fn
     - keyword: TO
-    - object_reference:
-        identifier: my_user
+    - grantee_statement:
+        object_reference:
+          identifier: my_user
 - statement_terminator: ;
 - statement:
     access_statement:
@@ -133,8 +142,9 @@ file:
     - object_reference:
         identifier: fn
     - keyword: TO
-    - object_reference:
-        identifier: my_user
+    - grantee_statement:
+        object_reference:
+          identifier: my_user
 - statement_terminator: ;
 - statement:
     access_statement:
@@ -148,8 +158,9 @@ file:
     - object_reference:
         identifier: my_schema
     - keyword: TO
-    - object_reference:
-        identifier: my_user
+    - grantee_statement:
+        object_reference:
+          identifier: my_user
 - statement_terminator: ;
 - statement:
     access_statement:
@@ -163,8 +174,9 @@ file:
     - object_reference:
         identifier: my_schema
     - keyword: TO
-    - object_reference:
-        identifier: my_user
+    - grantee_statement:
+        object_reference:
+          identifier: my_user
 - statement_terminator: ;
 - statement:
     access_statement:
@@ -178,8 +190,9 @@ file:
     - object_reference:
         identifier: my_schema
     - keyword: TO
-    - object_reference:
-        identifier: my_user
+    - grantee_statement:
+        object_reference:
+          identifier: my_user
 - statement_terminator: ;
 - statement:
     access_statement:
@@ -190,8 +203,9 @@ file:
     - object_reference:
         identifier: my_lang
     - keyword: TO
-    - object_reference:
-        identifier: my_user
+    - grantee_statement:
+        object_reference:
+          identifier: my_user
 - statement_terminator: ;
 - statement:
     access_statement:
@@ -202,8 +216,9 @@ file:
     - keyword: OBJECT
     - literal: '564182'
     - keyword: TO
-    - object_reference:
-        identifier: my_user
+    - grantee_statement:
+        object_reference:
+          identifier: my_user
 - statement_terminator: ;
 - statement:
     access_statement:
@@ -214,8 +229,9 @@ file:
     - object_reference:
         identifier: my_tblspc
     - keyword: TO
-    - object_reference:
-        identifier: my_user
+    - grantee_statement:
+        object_reference:
+          identifier: my_user
 - statement_terminator: ;
 - statement:
     access_statement:
@@ -226,8 +242,9 @@ file:
     - object_reference:
         identifier: my_type
     - keyword: TO
-    - object_reference:
-        identifier: my_role
+    - grantee_statement:
+        object_reference:
+          identifier: my_role
 - statement_terminator: ;
 - statement:
     access_statement:
@@ -235,8 +252,9 @@ file:
     - object_reference:
         identifier: my_user
     - keyword: TO
-    - object_reference:
-        identifier: my_group
+    - grantee_statement:
+        object_reference:
+          identifier: my_group
     - keyword: WITH
     - keyword: ADMIN
     - keyword: OPTION
@@ -250,8 +268,9 @@ file:
     - object_reference:
         identifier: my_user
     - keyword: TO
-    - object_reference:
-        identifier: my_group
+    - grantee_statement:
+        object_reference:
+          identifier: my_group
     - keyword: GRANTED
     - keyword: BY
     - keyword: SESSION_USER
@@ -262,8 +281,9 @@ file:
     - object_reference:
         identifier: my_user
     - keyword: TO
-    - object_reference:
-        identifier: my_group
+    - grantee_statement:
+        object_reference:
+          identifier: my_group
     - keyword: WITH
     - keyword: ADMIN
     - keyword: OPTION
@@ -287,8 +307,9 @@ file:
     - object_reference:
         identifier: my_db
     - keyword: TO
-    - object_reference:
-        identifier: xyz
+    - grantee_statement:
+        object_reference:
+          identifier: xyz
 - statement_terminator: ;
 - statement:
     access_statement:
@@ -305,11 +326,12 @@ file:
     - object_reference:
         identifier: my_db
     - keyword: TO
-    - object_reference:
-        identifier: my_user
-    - comma: ','
-    - object_reference:
-        identifier: my_other_user
+    - grantee_statement:
+      - object_reference:
+          identifier: my_user
+      - comma: ','
+      - object_reference:
+          identifier: my_other_user
     - keyword: WITH
     - keyword: GRANT
     - keyword: OPTION
@@ -322,11 +344,12 @@ file:
     - object_reference:
         identifier: abc
     - keyword: TO
-    - object_reference:
-        identifier: xyz
-    - comma: ','
-    - object_reference:
-        identifier: mno
+    - grantee_statement:
+      - object_reference:
+          identifier: xyz
+      - comma: ','
+      - object_reference:
+          identifier: mno
 - statement_terminator: ;
 - statement:
     access_statement:
@@ -340,9 +363,10 @@ file:
     - object_reference:
         identifier: my_schema
     - keyword: TO
-    - object_reference:
-        identifier: my_user
-    - comma: ','
-    - object_reference:
-        identifier: my_other_user
+    - grantee_statement:
+      - object_reference:
+          identifier: my_user
+      - comma: ','
+      - object_reference:
+          identifier: my_other_user
 - statement_terminator: ;

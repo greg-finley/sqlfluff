@@ -2862,6 +2862,17 @@ class DropIndexStatementSegment(BaseSegment):
     )
 
 
+class GranteeStatementSegment(BaseSegment):
+    """The receipient of the grant. Needs an override in MySQL."""
+
+    type = "grantee_statement"
+
+    match_grammar = Delimited(
+        OneOf(Ref("ObjectReferenceSegment"), Ref("FunctionSegment"), "PUBLIC"),
+        delimiter=Ref("CommaSegment"),
+    )
+
+
 class AccessStatementSegment(BaseSegment):
     """A `GRANT` or `REVOKE` statement.
 
@@ -3028,10 +3039,7 @@ class AccessStatementSegment(BaseSegment):
             ),
             "TO",
             OneOf("GROUP", "USER", "ROLE", "SHARE", optional=True),
-            Delimited(
-                OneOf(Ref("ObjectReferenceSegment"), Ref("FunctionSegment"), "PUBLIC"),
-                delimiter=Ref("CommaSegment"),
-            ),
+            Ref("GranteeStatementSegment"),
             OneOf(
                 Sequence("WITH", "GRANT", "OPTION"),
                 Sequence("WITH", "ADMIN", "OPTION"),

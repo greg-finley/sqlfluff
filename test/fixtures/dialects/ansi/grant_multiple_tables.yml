@@ -3,7 +3,7 @@
 # computed by SQLFluff when running the tests. Please run
 # `python test/generate_parse_fixture_yml.py`  to generate them after adding or
 # altering SQL files.
-_hash: 83109c48c23d6565c4a497d5e965b7b11d58babfdaa8438304d7c696e9b9637f
+_hash: ec1ec5701f2d357adff1098bfb58a22b7306ad6d846533ff506d3ccc918ec040
 file:
 - statement:
     access_statement:
@@ -16,8 +16,9 @@ file:
     - object_reference:
         identifier: my_table2
     - keyword: TO
-    - object_reference:
-        identifier: public
+    - grantee_statement:
+        object_reference:
+          identifier: public
 - statement_terminator: ;
 - statement:
     access_statement:
@@ -30,24 +31,9 @@ file:
     - object_reference:
         identifier: my_table2
     - keyword: TO
-    - object_reference:
-        identifier: '"public"'
-- statement_terminator: ;
-- statement:
-    access_statement:
-    - keyword: GRANT
-    - keyword: INSERT
-    - comma: ','
-    - keyword: UPDATE
-    - keyword: 'ON'
-    - object_reference:
-        identifier: my_table
-    - comma: ','
-    - object_reference:
-        identifier: my_table2
-    - keyword: TO
-    - object_reference:
-        identifier: public
+    - grantee_statement:
+        object_reference:
+          identifier: '"public"'
 - statement_terminator: ;
 - statement:
     access_statement:
@@ -62,8 +48,9 @@ file:
     - object_reference:
         identifier: my_table2
     - keyword: TO
-    - object_reference:
-        identifier: '"public"'
+    - grantee_statement:
+        object_reference:
+          identifier: public
 - statement_terminator: ;
 - statement:
     access_statement:
@@ -71,8 +58,6 @@ file:
     - keyword: INSERT
     - comma: ','
     - keyword: UPDATE
-    - comma: ','
-    - keyword: DELETE
     - keyword: 'ON'
     - object_reference:
         identifier: my_table
@@ -80,8 +65,9 @@ file:
     - object_reference:
         identifier: my_table2
     - keyword: TO
-    - object_reference:
-        identifier: public
+    - grantee_statement:
+        object_reference:
+          identifier: '"public"'
 - statement_terminator: ;
 - statement:
     access_statement:
@@ -98,8 +84,9 @@ file:
     - object_reference:
         identifier: my_table2
     - keyword: TO
-    - object_reference:
-        identifier: '"public"'
+    - grantee_statement:
+        object_reference:
+          identifier: public
 - statement_terminator: ;
 - statement:
     access_statement:
@@ -109,8 +96,6 @@ file:
     - keyword: UPDATE
     - comma: ','
     - keyword: DELETE
-    - comma: ','
-    - keyword: SELECT
     - keyword: 'ON'
     - object_reference:
         identifier: my_table
@@ -118,8 +103,9 @@ file:
     - object_reference:
         identifier: my_table2
     - keyword: TO
-    - object_reference:
-        identifier: public
+    - grantee_statement:
+        object_reference:
+          identifier: '"public"'
 - statement_terminator: ;
 - statement:
     access_statement:
@@ -138,6 +124,28 @@ file:
     - object_reference:
         identifier: my_table2
     - keyword: TO
+    - grantee_statement:
+        object_reference:
+          identifier: public
+- statement_terminator: ;
+- statement:
+    access_statement:
+    - keyword: GRANT
+    - keyword: INSERT
+    - comma: ','
+    - keyword: UPDATE
+    - comma: ','
+    - keyword: DELETE
+    - comma: ','
+    - keyword: SELECT
+    - keyword: 'ON'
     - object_reference:
-        identifier: '"public"'
+        identifier: my_table
+    - comma: ','
+    - object_reference:
+        identifier: my_table2
+    - keyword: TO
+    - grantee_statement:
+        object_reference:
+          identifier: '"public"'
 - statement_terminator: ;

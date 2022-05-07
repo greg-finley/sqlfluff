@@ -3,7 +3,7 @@
 # computed by SQLFluff when running the tests. Please run
 # `python test/generate_parse_fixture_yml.py`  to generate them after adding or
 # altering SQL files.
-_hash: cf8ee6e9f790d90ee0bef093f8874bda64b18448a5a7d109c854c19d5889264e
+_hash: 5c7bd273c55252814973163a56eb04c2b597be1c2b636ef7bb7a79b1e7e09de3
 file:
 - statement:
     access_statement:
@@ -17,8 +17,9 @@ file:
       - identifier: MY_SCHEMA
     - keyword: TO
     - keyword: ROLE
-    - object_reference:
-        identifier: MY_ROLE
+    - grantee_statement:
+        object_reference:
+          identifier: MY_ROLE
 - statement_terminator: ;
 - statement:
     access_statement:
@@ -28,8 +29,9 @@ file:
         identifier: MY_ROLE
     - keyword: TO
     - keyword: ROLE
-    - object_reference:
-        identifier: MY_OTHER_ROLE
+    - grantee_statement:
+        object_reference:
+          identifier: MY_OTHER_ROLE
 - statement_terminator: ;
 - statement:
     access_statement:
@@ -40,8 +42,9 @@ file:
     - object_reference:
         identifier: external_oauth_1
     - keyword: to
-    - object_reference:
-        identifier: role1
+    - grantee_statement:
+        object_reference:
+          identifier: role1
 - statement_terminator: ;
 - statement:
     access_statement:
@@ -55,8 +58,9 @@ file:
       - identifier: mytable
     - keyword: to
     - keyword: role
-    - object_reference:
-        identifier: analyst
+    - grantee_statement:
+        object_reference:
+          identifier: analyst
 - statement_terminator: ;
 - statement:
     access_statement:
@@ -71,8 +75,9 @@ file:
         identifier: public
     - keyword: to
     - keyword: role
-    - object_reference:
-        identifier: analyst
+    - grantee_statement:
+        object_reference:
+          identifier: analyst
 - statement_terminator: ;
 - statement:
     access_statement:
@@ -89,8 +94,9 @@ file:
       - identifier: public
     - keyword: to
     - keyword: role
-    - object_reference:
-        identifier: analyst
+    - grantee_statement:
+        object_reference:
+          identifier: analyst
 - statement_terminator: ;
 - statement:
     access_statement:
@@ -107,8 +113,9 @@ file:
       - identifier: public
     - keyword: to
     - keyword: role
-    - object_reference:
-        identifier: analyst
+    - grantee_statement:
+        object_reference:
+          identifier: analyst
     - keyword: copy
     - keyword: current
     - keyword: grants
@@ -121,14 +128,15 @@ file:
         identifier: ROLENAME
     - keyword: TO
     - keyword: ROLE
-    - function:
-        function_name:
-          function_name_identifier: IDENTIFIER
-        bracketed:
-          start_bracket: (
-          expression:
-            variable: $THIS_ROLE
-          end_bracket: )
+    - grantee_statement:
+        function:
+          function_name:
+            function_name_identifier: IDENTIFIER
+          bracketed:
+            start_bracket: (
+            expression:
+              variable: $THIS_ROLE
+            end_bracket: )
 - statement_terminator: ;
 - statement:
     access_statement:
@@ -140,8 +148,9 @@ file:
         identifier: TEST_ROLE
     - keyword: TO
     - keyword: ROLE
-    - object_reference:
-        identifier: DIFFERENT_ROLE
+    - grantee_statement:
+        object_reference:
+          identifier: DIFFERENT_ROLE
 - statement_terminator: ;
 - statement:
     access_statement:
