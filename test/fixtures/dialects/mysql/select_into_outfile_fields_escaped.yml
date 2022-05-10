@@ -3,7 +3,7 @@
 # computed by SQLFluff when running the tests. Please run
 # `python test/generate_parse_fixture_yml.py`  to generate them after adding or
 # altering SQL files.
-_hash: 249030a438839964b285e55535fa10e0745aec211a4c2c34fbf4b4363f8b29a3
+_hash: 0be4c16e01656ad9a7fe9b6867ffd438c49f2b86db4d361f2c902dc748448adc
 file:
   statement:
     select_statement:
@@ -13,15 +13,15 @@ file:
           wildcard_expression:
             wildcard_identifier:
               star: '*'
-      into_clause:
-      - keyword: into
-      - keyword: outfile
-      - literal: "'a'"
-      - keyword: fields
-      - keyword: escaped
-      - keyword: by
-      - literal: "'-'"
       from_clause:
+        into_clause:
+        - keyword: into
+        - keyword: outfile
+        - literal: "'a'"
+        - keyword: fields
+        - keyword: escaped
+        - keyword: by
+        - literal: "'-'"
         keyword: from
         from_expression:
           from_expression_element:

@@ -1291,6 +1291,34 @@ class IntoClauseSegment(BaseSegment):
     )
 
 
+class FromClauseSegment(ansi.FromClauseSegment):
+    pass
+
+    type = ansi.FromClauseSegment.type
+
+    match_grammar = OneOf(
+        Sequence(
+            ansi.FromClauseSegment.match_grammar.copy(),
+            Sequence(Ref("IntoClauseSegment"), optional=True),
+        ),
+        Sequence(
+            Sequence(Ref("IntoClauseSegment"), optional=True),
+            ansi.FromClauseSegment.match_grammar.copy(),
+        ),
+    )
+
+    parse_grammar = OneOf(
+        Sequence(
+            ansi.FromClauseSegment.parse_grammar.copy(),
+            Sequence(Ref("IntoClauseSegment"), optional=True),
+        ),
+        Sequence(
+            Sequence(Ref("IntoClauseSegment"), optional=True),
+            ansi.FromClauseSegment.parse_grammar.copy(),
+        ),
+    )
+
+
 class UnorderedSelectStatementSegment(ansi.UnorderedSelectStatementSegment):
     """A `SELECT` statement without any ORDER clauses or later.
 
@@ -1314,10 +1342,8 @@ class UnorderedSelectStatementSegment(ansi.UnorderedSelectStatementSegment):
 
     parse_grammar = (
         ansi.UnorderedSelectStatementSegment.parse_grammar.copy(
-            insert=[Ref("IntoClauseSegment", optional=True)],
-            before=Ref("FromClauseSegment", optional=True),
+            insert=[Ref("ForClauseSegment", optional=True)]
         )
-        .copy(insert=[Ref("ForClauseSegment", optional=True)])
         .copy(
             insert=[Ref("IndexHintClauseSegment", optional=True)],
             before=Ref("WhereClauseSegment", optional=True),
