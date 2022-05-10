@@ -2349,6 +2349,11 @@ class MergeStatementSegment(BaseSegment):
             Ref("TableReferenceSegment"),
             Ref("AliasedTableReferenceGrammar"),
         ),
+        Sequence(
+            "WITH",
+            Bracketed("INDEX", Bracketed(Ref("ObjectReferenceSegment"))),
+            optional=True,
+        ),
         Dedent,
         "USING",
         Indent,

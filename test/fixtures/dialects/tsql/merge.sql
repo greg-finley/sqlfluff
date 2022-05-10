@@ -167,3 +167,6 @@ from
 ) as upd
 ;
 GO
+
+merge into blah with(index(blubb));
+GO:
