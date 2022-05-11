@@ -258,6 +258,48 @@ mysql_dialect.add(
         type="literal",
         trim_chars=("@",),
     ),
+    OutputParameterSegment=StringParser(
+        "OUT", SymbolSegment, name="inputparameter", type="parameter_direction"
+    ),
+    InputParameterSegment=StringParser(
+        "IN", SymbolSegment, name="outputparameter", type="parameter_direction"
+    ),
+    InputOutputParameterSegment=StringParser(
+        "INOUT", SymbolSegment, name="inputoutputparameter", type="parameter_direction"
+    ),
+    ProcedureParameterGrammar=OneOf(
+        Sequence(
+            OneOf(
+                Ref("OutputParameterSegment"),
+                Ref("InputParameterSegment"),
+                Ref("InputOutputParameterSegment"),
+                optional=True,
+            ),
+            Ref("ParameterNameSegment", optional=True),
+            Ref("DatatypeSegment"),
+        ),
+        Ref("DatatypeSegment"),
+    ),
+    LocalVariableNameSegment=RegexParser(
+        r"`?[a-zA-Z0-9_]*`?",
+        CodeSegment,
+        name="declared_variable",
+        type="variable",
+    ),
+    SessionVariableNameSegment=RegexParser(
+        r"[@][a-zA-Z0-9_]*",
+        CodeSegment,
+        name="declared_variable",
+        type="variable",
+    ),
+    BooleanDynamicSystemVariablesGrammar=OneOf(
+        # Boolean dynamic system varaiables can be set to ON/OFF, TRUE/FALSE, or 0/1:
+        # https://dev.mysql.com/doc/refman/8.0/en/dynamic-system-variables.html
+        # This allows us to match ON/OFF & TRUE/FALSE as keywords and therefore apply
+        # the correct capitalisation policy.
+        OneOf("ON", "OFF"),
+        OneOf("TRUE", "FALSE"),
+    ),
 )
 
 
@@ -708,52 +750,6 @@ class IntervalExpressionSegment(BaseSegment):
             Ref("QuotedLiteralSegment"),
         ),
     )
-
-
-mysql_dialect.add(
-    OutputParameterSegment=StringParser(
-        "OUT", SymbolSegment, name="inputparameter", type="parameter_direction"
-    ),
-    InputParameterSegment=StringParser(
-        "IN", SymbolSegment, name="outputparameter", type="parameter_direction"
-    ),
-    InputOutputParameterSegment=StringParser(
-        "INOUT", SymbolSegment, name="inputoutputparameter", type="parameter_direction"
-    ),
-    ProcedureParameterGrammar=OneOf(
-        Sequence(
-            OneOf(
-                Ref("OutputParameterSegment"),
-                Ref("InputParameterSegment"),
-                Ref("InputOutputParameterSegment"),
-                optional=True,
-            ),
-            Ref("ParameterNameSegment", optional=True),
-            Ref("DatatypeSegment"),
-        ),
-        Ref("DatatypeSegment"),
-    ),
-    LocalVariableNameSegment=RegexParser(
-        r"`?[a-zA-Z0-9_]*`?",
-        CodeSegment,
-        name="declared_variable",
-        type="variable",
-    ),
-    SessionVariableNameSegment=RegexParser(
-        r"[@][a-zA-Z0-9_]*",
-        CodeSegment,
-        name="declared_variable",
-        type="variable",
-    ),
-    BooleanDynamicSystemVariablesGrammar=OneOf(
-        # Boolean dynamic system varaiables can be set to ON/OFF, TRUE/FALSE, or 0/1:
-        # https://dev.mysql.com/doc/refman/8.0/en/dynamic-system-variables.html
-        # This allows us to match ON/OFF & TRUE/FALSE as keywords and therefore apply
-        # the correct capitalisation policy.
-        OneOf("ON", "OFF"),
-        OneOf("TRUE", "FALSE"),
-    ),
-)
 
 
 mysql_dialect.insert_lexer_matchers(
