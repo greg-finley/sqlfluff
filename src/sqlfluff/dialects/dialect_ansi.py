@@ -414,8 +414,8 @@ ansi_dialect.add(
         Ref("NullLiteralSegment"),
         Ref("DateTimeLiteralGrammar"),
     ),
-    AndKeywordSegment=StringParser("and", KeywordSegment, type="binary_operator"),
-    OrKeywordSegment=StringParser("or", KeywordSegment, type="binary_operator"),
+    AndKeywordSegment=StringParser("AND", KeywordSegment, type="binary_operator"),
+    OrKeywordSegment=StringParser("OR", KeywordSegment, type="binary_operator"),
     # This is a placeholder for other dialects.
     PreTableFunctionKeywordsGrammar=Nothing(),
     BinaryOperatorGrammar=OneOf(
