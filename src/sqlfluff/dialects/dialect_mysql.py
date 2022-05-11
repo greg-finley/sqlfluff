@@ -23,6 +23,7 @@ from sqlfluff.core.parser import (
     Anything,
     AnySetOf,
     Matchable,
+    KeywordSegment,
 )
 from sqlfluff.core.dialects import load_raw_dialect
 from sqlfluff.dialects import dialect_ansi as ansi
@@ -241,6 +242,9 @@ mysql_dialect.replace(
     SingleIdentifierGrammar=ansi_dialect.get_grammar("SingleIdentifierGrammar").copy(
         insert=[Ref("SessionVariableNameSegment")]
     ),
+    BooleanBinaryOperatorGrammar=OneOf(
+        Ref("AndKeywordSegment"), Ref("OrKeywordSegment"), Ref("XorKeywordSegment")
+    ),
 )
 
 mysql_dialect.add(
@@ -299,6 +303,9 @@ mysql_dialect.add(
         # the correct capitalisation policy.
         OneOf("ON", "OFF"),
         OneOf("TRUE", "FALSE"),
+    ),
+    XorKeywordSegment=StringParser(
+        "XOR", KeywordSegment, name="xor", type="binary_operator"
     ),
 )
 
