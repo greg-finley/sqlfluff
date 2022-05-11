@@ -226,6 +226,7 @@ mysql_dialect.replace(
         ),
         Ref("DoubleQuotedLiteralSegment"),
     ),
+    BitwiseAndSegment=OneOf(Ref("AmpersandSegment"), Ref("DoubleAmpersandSegment")),
     UniqueKeyGrammar=Sequence(
         "UNIQUE",
         Ref.keyword("KEY", optional=True),
@@ -243,7 +244,10 @@ mysql_dialect.replace(
         insert=[Ref("SessionVariableNameSegment")]
     ),
     BooleanBinaryOperatorGrammar=OneOf(
-        Ref("AndKeywordSegment"), Ref("OrKeywordSegment"), Ref("XorKeywordSegment")
+        Ref("AndKeywordSegment"),
+        Ref("OrKeywordSegment"),
+        Ref("XorKeywordSegment"),
+        Ref("DoubleAmpersandSegment"),
     ),
 )
 
@@ -306,6 +310,9 @@ mysql_dialect.add(
     ),
     XorKeywordSegment=StringParser(
         "XOR", KeywordSegment, name="xor", type="binary_operator"
+    ),
+    DoubleAmpersandSegment=StringParser(
+        "&&", SymbolSegment, name="double_ampersand", type="binary_operator"
     ),
 )
 
