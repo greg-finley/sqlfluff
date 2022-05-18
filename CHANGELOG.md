@@ -10,6 +10,13 @@ Note: Changes are now automatically tracked in [GitHub](https://github.com/sqlfl
 -->
 <!--Start Of Releases (DO NOT DELETE THIS LINE)-->
 
+##[0.13.2] - 2022-05-18
+
+## What’s Changed
+
+* Random change (#12) @greg-finley
+* Prep version 0.13.2 (#8) @github-actions
+
 ## [0.13.1] - 2022-05-06
 
 ## Highlights
