@@ -29,7 +29,7 @@ jobs:
           echo "[${{ github.event.inputs.newVersionNumber }}] - $(date +%F)" > notes.txt
           gh release view $LATEST_DRAFT_RELEASE | sed '1,/^--$/d' >> notes.txt
           cat notes.txt
-          sed '/<!--Start Of Releases (DO NOT DELETE THIS LINE)-->/r notes.txt' ./CHANGELOG.md
+          sed -i -e '/DO NOT DELETE THIS LINE/r./notes.txt' CHANGELOG.md
           rm notes.txt
 
       - name: Create pull request
