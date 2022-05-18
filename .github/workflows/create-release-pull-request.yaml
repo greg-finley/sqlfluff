@@ -30,7 +30,7 @@ jobs:
           echo "" >> notes.txt
           echo "## Highlights" >> notes.txt
           echo "" >> notes.txt
-          gh release view $LATEST_DRAFT_RELEASE | sed '1,/^--$/d' >> notes.txt
+          gh release view $LATEST_DRAFT_RELEASE | sed '1,/^--$/d | sed 's/\(#([0-9]*)\) @([^ ]*)$/[#$1](https:\/\/github.com\/sqlfluff\/sqlfluff\/pull\/$1) [@$2](https:\/\/github.com\/$2)/g' >> notes.txt
           echo "" >> notes.txt
           echo "## New Contributors" >> notes.txt
           cat notes.txt
