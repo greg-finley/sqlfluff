@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 Note: Changes are now automatically tracked in [GitHub](https://github.com/sqlfluff/sqlfluff/releases) and will be copied in here on each release (please remember to update the issues and contributors to links!). There is no need to manually edit this file going forward.
 -->
 <!--Start Of Releases (DO NOT DELETE THIS LINE)-->
+
+## [0.13.3] - 2022-05-18
+
+## What’s Changed CHANGELOG.md CODE_OF_CONDUCT.md CONTRIBUTING.md Dockerfile LICENSE.md MANIFEST.in README.md benchmarks bin docs examples images mypy.ini plugins pytest.ini requirements.txt requirements_dev.txt setup.cfg setup.py src test tox.ini util.py Prep version 0.13.2 (#8) @github-actions
 ## [0.13.1] - 2022-05-06
 
 ## Highlights
