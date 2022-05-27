@@ -18,10 +18,12 @@ Wow, so much amazing highlights.
 ## What’s Changed
 
 * Prep version 0.13.2 [#31](https://github.com/sqlfluff/sqlfluff/pull/31) [@github-actions](https://github.com/github-actions)
+* Random change [#12](https://github.com/sqlfluff/sqlfluff/pull/12) [@greg-finley](https://github.com/greg-finley)
 * Some fake change [#8](https://github.com/sqlfluff/sqlfluff/pull/8) [@github-actions](https://github.com/github-actions)
 
-## New Contributors
 
+## New Contributors
+* [@github-actions](https://github.com/github-actions) made their first contribution in [#8](https://github.com/sqlfluff/sqlfluff/pull/8)
 
 ##[0.13.2] - 2022-05-20
 
