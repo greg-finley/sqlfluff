@@ -12,6 +12,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - name: Abort if branch already exists
+        run: |
+            _branch_name="prep-${{ github.event.inputs.newVersionNumber }}"
+            _check_branch=$(git branch --list ${_check_branch})
+            if [[ -z ${_check_branch} ]]; then
+               echo "Branch already exists, aborting. Run script locally to update release notes."
+               exit 1
+            else
+               echo "Branch does not exist, good to continue."
+            fi
+
       - name: Set up Python
         uses: actions/setup-python@v3
         with:
