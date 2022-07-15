@@ -10,6 +10,58 @@ Note: Changes are now automatically tracked in [GitHub](https://github.com/sqlfl
 -->
 <!--Start Of Releases (DO NOT DELETE THIS LINE)-->
 
+## [1.2.1] - 2022-07-15
+
+## Highlights
+
+## What’s Changed
+
+* Postgres: Finish `ALTER TYPE` [#3451](https://github.com/sqlfluff/sqlfluff/pull/3451) [@greg-finley](https://github.com/greg-finley)
+* SparkSQL: Add Delta Syntax for `DESCRIBE HISTORY` statement [#3447](https://github.com/sqlfluff/sqlfluff/pull/3447) [@R7L208](https://github.com/R7L208)
+* Snowflake: Support Stage data file parameters in `FROM` clauses [#3446](https://github.com/sqlfluff/sqlfluff/pull/3446) [@tunetheweb](https://github.com/tunetheweb)
+* Redshift: Support Object unpivoting [#3441](https://github.com/sqlfluff/sqlfluff/pull/3441) [@tunetheweb](https://github.com/tunetheweb)
+* Python script to automate release [#3403](https://github.com/sqlfluff/sqlfluff/pull/3403) [@greg-finley](https://github.com/greg-finley)
+* Remove Delta Lake Reference in README.md [#3444](https://github.com/sqlfluff/sqlfluff/pull/3444) [@R7L208](https://github.com/R7L208)
+* Add `databricks` dialect as an alias for `sparksql` dialect [#3440](https://github.com/sqlfluff/sqlfluff/pull/3440) [@R7L208](https://github.com/R7L208)
+* Make all Postgres identifiers quotable  [#3442](https://github.com/sqlfluff/sqlfluff/pull/3442) [@tunetheweb](https://github.com/tunetheweb)
+* Update JinjaAnalyzer and JinjaTracer to handle `{% block %}` [#3436](https://github.com/sqlfluff/sqlfluff/pull/3436) [@barrywhart](https://github.com/barrywhart)
+* SparkSQL: Add support for Delta `VACUUM` statement [#3439](https://github.com/sqlfluff/sqlfluff/pull/3439) [@R7L208](https://github.com/R7L208)
+* Warning for parsing errors extended to all dialects [#3411](https://github.com/sqlfluff/sqlfluff/pull/3411) [@mdahlman](https://github.com/mdahlman)
+* Handle templater validation errors more gracefully [#3433](https://github.com/sqlfluff/sqlfluff/pull/3433) [@alanmcruickshank](https://github.com/alanmcruickshank)
+* MYSQL: allow for escaped single quotes [#3424](https://github.com/sqlfluff/sqlfluff/pull/3424) [@mdahlman](https://github.com/mdahlman)
+* L027: Fix false positives by reverting the PR for issue #2992: Check table aliases exist [#3435](https://github.com/sqlfluff/sqlfluff/pull/3435) [@barrywhart](https://github.com/barrywhart)
+* Allow `numeric_dollar` templater to have curly braces, update `dollar` + `numeric_dollar` templater examples in docs [#3432](https://github.com/sqlfluff/sqlfluff/pull/3432) [@menzenski](https://github.com/menzenski)
+* Allow Redshift `IDENTITY` column `(seed, step)` to be optional [#3430](https://github.com/sqlfluff/sqlfluff/pull/3430) [@menzenski](https://github.com/menzenski)
+* L036: Make wildcard behavior configurable [#3426](https://github.com/sqlfluff/sqlfluff/pull/3426) [@barrywhart](https://github.com/barrywhart)
+* L034: Don't autofix if numeric column references [#3423](https://github.com/sqlfluff/sqlfluff/pull/3423) [@barrywhart](https://github.com/barrywhart)
+* L036: Treat wildcard as multiple select targets (i.e. separate line) [#3422](https://github.com/sqlfluff/sqlfluff/pull/3422) [@barrywhart](https://github.com/barrywhart)
+* Snowflake: IDENTIFIER pseudo-function [#3409](https://github.com/sqlfluff/sqlfluff/pull/3409) [@mdahlman](https://github.com/mdahlman)
+* SNOWFLAKE: Fully referenced object names in clone statements [#3414](https://github.com/sqlfluff/sqlfluff/pull/3414) [@mdahlman](https://github.com/mdahlman)
+* Unpin coverage now issue 6.3 has been resolved [#3393](https://github.com/sqlfluff/sqlfluff/pull/3393) [@tunetheweb](https://github.com/tunetheweb)
+* L045: handle `UPDATE` statements with CTEs [#3397](https://github.com/sqlfluff/sqlfluff/pull/3397) [@tunetheweb](https://github.com/tunetheweb)
+* L027: Add support for `ignore_words` [#3398](https://github.com/sqlfluff/sqlfluff/pull/3398) [@dmohns](https://github.com/dmohns)
+* Postgres: Allow `CREATE FUNCTION` to use Expressions in default values [#3408](https://github.com/sqlfluff/sqlfluff/pull/3408) [@tunetheweb](https://github.com/tunetheweb)
+* Fix bug in `apply_fixes()` with leading/trailing whitespace [#3407](https://github.com/sqlfluff/sqlfluff/pull/3407) [@barrywhart](https://github.com/barrywhart)
+* Redshift: Correct `ALTER TABLE` syntax [#3395](https://github.com/sqlfluff/sqlfluff/pull/3395) [@tunetheweb](https://github.com/tunetheweb)
+* Postgres: Parse index with column sort [#3405](https://github.com/sqlfluff/sqlfluff/pull/3405) [@greg-finley](https://github.com/greg-finley)
+* MySQL: Improve SET Syntax for Variable Assignment [#3394](https://github.com/sqlfluff/sqlfluff/pull/3394) [@mdahlman](https://github.com/mdahlman)
+* Handle Postgres-style type casts when using the `colon_nospaces` templating style [#3383](https://github.com/sqlfluff/sqlfluff/pull/3383) [@benji-york](https://github.com/benji-york)
+* Capitalization in help message [#3385](https://github.com/sqlfluff/sqlfluff/pull/3385) [@mdahlman](https://github.com/mdahlman)
+* MySQL: Update keywords [#3381](https://github.com/sqlfluff/sqlfluff/pull/3381) [@mdahlman](https://github.com/mdahlman)
+* Teradata: Database statement and Set Session Database [#3382](https://github.com/sqlfluff/sqlfluff/pull/3382) [@mdahlman](https://github.com/mdahlman)
+
+## New Contributors
+
+* [@mdahlman](https://github.com/mdahlman) made their first contribution in [#3382](https://github.com/sqlfluff/sqlfluff/pull/3382)
+* [@benji-york](https://github.com/benji-york) made their first contribution in [#3383](https://github.com/sqlfluff/sqlfluff/pull/3383)
+* [@greg-finley](https://github.com/greg-finley) made their first contribution in [#3405](https://github.com/sqlfluff/sqlfluff/pull/3405)
+* [@tunetheweb](https://github.com/tunetheweb) made their first contribution in [#3395](https://github.com/sqlfluff/sqlfluff/pull/3395)
+* [@barrywhart](https://github.com/barrywhart) made their first contribution in [#3407](https://github.com/sqlfluff/sqlfluff/pull/3407)
+* [@dmohns](https://github.com/dmohns) made their first contribution in [#3398](https://github.com/sqlfluff/sqlfluff/pull/3398)
+* [@menzenski](https://github.com/menzenski) made their first contribution in [#3430](https://github.com/sqlfluff/sqlfluff/pull/3430)
+* [@alanmcruickshank](https://github.com/alanmcruickshank) made their first contribution in [#3433](https://github.com/sqlfluff/sqlfluff/pull/3433)
+* [@R7L208](https://github.com/R7L208) made their first contribution in [#3439](https://github.com/sqlfluff/sqlfluff/pull/3439)
+
 ## [1.2.0] - 2022-07-13
 
 ## Highlights
