@@ -228,12 +228,13 @@ def prepare_release(new_version_num):
                 for c in deduped_potential_new_contributors:
                     if c["name"] not in input_changelog_str:
                         new_contributor_lines.append(c["line"])
-                input_changelog[existing_whats_changed_start] = (
-                    whats_changed_text
-                    + "\n\n## New Contributors\n"
-                    + "\n".join(new_contributor_lines)
-                    + "\n\n"
-                )
+                if new_contributor_lines:
+                    input_changelog[existing_whats_changed_start] = (
+                        whats_changed_text
+                        + "\n\n## New Contributors\n"
+                        + "\n".join(new_contributor_lines)
+                        + "\n\n"
+                    )
 
             else:
                 write_changelog.write(
