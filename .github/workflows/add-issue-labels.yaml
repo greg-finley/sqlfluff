@@ -4,11 +4,11 @@ on:
     types: [opened]
 
 jobs:
-  test:
+  set-issue-label:
     runs-on: ubuntu-latest
     steps:
       - uses: Naturalclar/issue-action@v2.0.2
         with:
           title-or-body: "title"
-          parameters: '[ {"keywords": ["mysql"], "labels": ["mysql"]}]'
+          parameters: '[{"keywords": ["ansi"], "labels": ["ansi"]}, {"keywords": ["bigquery"], "labels": ["bigquery"]}, {"keywords": ["clickhouse"], "labels": ["clickhouse"]}, {"keywords": ["db2"], "labels": ["db2"]}, {"keywords": ["exasol"], "labels": ["exasol"]}, {"keywords": ["hive"], "labels": ["hive"]}, {"keywords": ["mysql"], "labels": ["mysql"]}, {"keywords": ["mysql"], "labels": ["mysql"]}, {"keywords": ["oracle"], "labels": ["oracle"]}, {"keywords": ["postgres"], "labels": ["postgres"]}, {"keywords": ["redshift"], "labels": ["redshift"]}, {"keywords": ["snowflake"], "labels": ["snowflake"]}, {"keywords": ["soql"], "labels": ["soql"]}, {"keywords": ["sparksql"], "labels": ["sparksql"]}, {"keywords": ["sqlite"], "labels": ["sqlite"]}, {"keywords": ["t-sql", "tsql"], "labels": ["t-sql"]}, {"keywords": ["teradata"], "labels": ["teradata"]}]'
           github-token: "${{ secrets.GITHUB_TOKEN }}"
